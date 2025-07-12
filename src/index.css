@@ -1,184 +1,128 @@
 @import "tailwindcss";
 
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Inter:wght@400;600&display=swap');
+/* Google Fonts */
+@import url("https://fonts.googleapis.com/css2?family=Anton&family=Bebas+Neue&family=Inter:wght@400;600&family=Orbitron:wght@600&family=Space+Grotesk:wght@400;600&display=swap");
 
-
-h1, h2, h3 {
-  font-family: 'Bebas Neue', sans-serif; 
-  letter-spacing: 1px;
+/* Font Faces */
+@font-face {
+  font-family: "Modern Negra";
+  src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
 }
 
-body {
-  font-family: 'Inter', sans-serif;
-  width: 100dvw;
-  overflow-x: hidden;
-  background-color: #000;
-  color: white;
+/* Base Styles */
+@layer base {
+  :root {
+    --font-heading: 'Bebas Neue', sans-serif;
+    --font-body: 'Inter', sans-serif;
+    --font-alt: 'Orbitron', sans-serif;
+    --font-display: 'Anton', sans-serif;
 
-  background:
-    radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.025), transparent 40%),
-    radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.02), transparent 50%),
-    linear-gradient(160deg, #0a0a0f 0%, #0d0d1c 40%, #000000 100%);
-}
-body::before {
-  content: "";
-  position: fixed;
-  inset: 0;
-  z-index: -1;
-  pointer-events: none;
-  background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.01), transparent 70%);
-}
-html {
-  scroll-behavior: smooth;
-}
-:root {
-  /* Typography */
-  --font-heading: 'Bebas Neue', sans-serif;
-  --font-body: 'Inter', sans-serif;
-  --font-alt: 'Orbitron', sans-serif;
+    /* Backgrounds */
+    --color-bg-base: #0a0a0f;
+    --color-bg-layer: #0d0d1c;
+    --color-surface: #181820;
+    --color-panel: #1f1f2a;
 
-  /* Backgrounds */
-  --color-bg-base: #0a0a0f;
-  --color-bg-layer: #0d0d1c;
-  --color-surface: #181820;
-  --color-panel: #1f1f2a;
+    /* Text Colors */
+    --color-white: #ffffff;
+    --color-gray-100: #e4e4e7;
+    --color-gray-300: #a1a1aa;
+    --color-gray-500: #71717a;
+    --color-gray-700: #3f3f46;
 
-  /* Text & Base Colors */
-  --color-white: #ffffff;
-  --color-gray-100: #e4e4e7;
-  --color-gray-300: #a1a1aa;
-  --color-gray-500: #71717a;
-  --color-gray-700: #3f3f46;
+    /* Deadpool Red */
+    --color-red-100: #ffccd5;
+    --color-red-300: #ff4b5c;
+    --color-red-core: #c2042c;
 
-  /* Red (Deadpool tone) */
-  --color-red-100: #ffccd5;
-  --color-red-300: #ff4b5c;
-  --color-red-core: #c2042c;
+    /* Blues */
+    --color-blue-50: #d6f0ff;
+    --color-blue-100: #a0d3ff;
+    --color-blue-300: #3b82f6;
+    --color-blue-500: #1e3a8a;
+    --color-blue-neon: #00cfff;
+    --color-blue-glow: #0070f3;
 
-  /* Blues */
-  --color-blue-50: #d6f0ff;
-  --color-blue-100: #a0d3ff;
-  --color-blue-300: #3b82f6;
-  --color-blue-500: #1e3a8a;
-  --color-blue-neon: #00cfff;
-  --color-blue-glow: #0070f3;
+    /* Violets / Neons */
+    --color-violet-100: #e5d9ff;
+    --color-violet-300: #8c5eff;
+    --color-violet-500: #5b21b6;
+    --color-violet-neon: #9f00ff;
 
-  /* Violets / Neons */
-  --color-violet-100: #e5d9ff;
-  --color-violet-300: #8c5eff;
-  --color-violet-500: #5b21b6;
-  --color-violet-neon: #9f00ff;
+    /* Accents */
+    --color-accent-cyan: #00ffe7;
+    --color-accent-pink: #ff00cc;
+    --color-accent-yellow: #fffd76;
 
-  /* Accent Neons */
-  --color-accent-cyan: #00ffe7;
-  --color-accent-pink: #ff00cc;
-  --color-accent-yellow: #fffd76;
-
-  /* Glow Effects */
-  --color-glow-soft: rgba(255, 255, 255, 0.07);
-  --color-glow-blue: rgba(0, 160, 255, 0.25);
-  --color-glow-red: rgba(255, 50, 80, 0.25);
-  --color-glow-pink: rgba(255, 0, 204, 0.2);
-}
-
-.font-heading {
-  font-family: var(--font-heading);
-}
-
-.font-body {
-  font-family: var(--font-body);
-}
-
-.font-alt {
-  font-family: var(--font-alt);
-}
-
-@layer base{
-    .indicator-line {
-    height: 0.25rem;
-    width: 1px;
-    border-radius: 9999px;
-    background-color: white;
-    transition: all 0.2s ease-in-out;
+    /* Glow */
+    --color-glow-soft: rgba(255, 255, 255, 0.07);
+    --color-glow-blue: rgba(0, 160, 255, 0.25);
+    --color-glow-red: rgba(255, 50, 80, 0.25);
+    --color-glow-pink: rgba(255, 0, 204, 0.2);
   }
 
-  @keyframes indicator-line {
-    0% {
-      height: 4px;
-      transform: translateY(-0px);
-    }
-
-    50% {
-      height: 16px;
-      transform: translateY(-4px);
-    }
-
-    100% {
-      height: 4px;
-      transform: translateY(-0px);
-    }
+  body {
+    font-family: var(--font-body);
+    width: 100dvw;
+    overflow-x: hidden;
+    background-color: #000;
+    color: white;
+    background:
+      radial-gradient(circle at 20% 30%, rgba(255, 0, 0, 0.025), transparent 40%),
+      radial-gradient(circle at 80% 70%, rgba(139, 0, 0, 0.02), transparent 50%),
+      linear-gradient(160deg, #0a0a0f 0%, #0d0d1c 40%, #000000 100%);
   }
 
-  .indicator-line.active {
-    animation: indicator-line 0.5s ease infinite;
-    animation-delay: calc(var(--animation-order) * 0.1s);
+  body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    z-index: -1;
+    pointer-events: none;
+    background: radial-gradient(ellipse at center, rgba(255, 0, 0, 0.01), transparent 70%);
   }
-  
-  .floating-nav {
-    background-color: black;
-    border-radius: 0.5rem;
-    border-width: 1px;
-    border-style: solid;
-    border-color: rgba(229, 231, 235, 0.2);
+
+  html {
+    scroll-behavior: smooth;
   }
+
+  h1, h2, h3 {
+    font-family: var(--font-heading);
+    letter-spacing: 1px;
+  }
+
+  .font-heading {
+    font-family: var(--font-heading);
+  }
+
+  .font-body {
+    font-family: var(--font-body);
+  }
+
+  .font-alt {
+    font-family: var(--font-alt);
+  }
+
+  .font-display {
+    font-family: var(--font-display);
+  }
+
+  .font-modern-negra {
+    font-family: "Modern Negra", sans-serif;
+  }
+
+  .text-gradient {
+    background: linear-gradient(to right, #ff0055, #ff6666);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+
+  /* Glitch Effects */
   .glitch {
-  position: relative;
-  animation: glitchFlicker 1.5s infinite alternate;
-}
-
-@keyframes glitchFlicker {
-  0%, 20%, 22%, 63%, 65%, 100% {
-    opacity: 1;
-    text-shadow:
-      0 0 3px #ff0033,
-      0 0 5px #ff0033,
-      0 0 10px #ff0033;
-  }
-  21%, 64% {
-    opacity: 0.3;
-    text-shadow: none;
-  }
-}
- @keyframes glitch {
-    0% {
-      transform: translate(0);
-      opacity: 1;
-    }
-    20% {
-      transform: translate(-2px, 2px);
-      opacity: 0.8;
-    }
-    40% {
-      transform: translate(-2px, -2px);
-      opacity: 0.9;
-    }
-    60% {
-      transform: translate(2px, 2px);
-      opacity: 0.6;
-    }
-    80% {
-      transform: translate(2px, -2px);
-      opacity: 0.8;
-    }
-    100% {
-      transform: translate(0);
-      opacity: 1;
-    }
-  }
-
-  .glitch {
+    position: relative;
     animation: glitch 1s infinite;
   }
+
   .glitch-soft {
     animation: glitch 2s infinite;
     opacity: 0.9;
@@ -188,6 +132,108 @@ html {
     animation: glitch 0.5s infinite;
   }
 
+  .glitch-text {
+    position: relative;
+    color: red;
+  }
+
+  .glitch-text::before,
+  .glitch-text::after {
+    content: attr(data-text);
+    position: absolute;
+    left: 0;
+    width: 100%;
+    background: black;
+    clip: rect(0, 900px, 0, 0);
+  }
+
+  .glitch-text::before {
+    animation: glitchTop 1.5s infinite linear alternate;
+    color: #ff0000;
+  }
+
+  .glitch-text::after {
+    animation: glitchBottom 1.5s infinite linear alternate;
+    color: #00ffff;
+  }
+
+  @keyframes glitch {
+    0% { transform: translate(0); opacity: 1; }
+    20% { transform: translate(-2px, 2px); opacity: 0.8; }
+    40% { transform: translate(-2px, -2px); opacity: 0.9; }
+    60% { transform: translate(2px, 2px); opacity: 0.6; }
+    80% { transform: translate(2px, -2px); opacity: 0.8; }
+    100% { transform: translate(0); opacity: 1; }
+  }
+
+  @keyframes glitchTop {
+    0%, 20% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(0, 9999px, 25px, 0); }
+  }
+
+  @keyframes glitchBottom {
+    0%, 20% { clip: rect(0, 9999px, 0, 0); }
+    10% { clip: rect(25px, 9999px, 9999px, 0); }
+  }
+
+  /* Indicator Line */
+  .indicator-line {
+    height: 0.25rem;
+    width: 1px;
+    border-radius: 9999px;
+    background-color: white;
+    transition: all 0.2s ease-in-out;
+  }
+
+  @keyframes indicator-line {
+    0% { height: 4px; transform: translateY(0px); }
+    50% { height: 16px; transform: translateY(-4px); }
+    100% { height: 4px; transform: translateY(0px); }
+  }
+
+  .indicator-line.active {
+    animation: indicator-line 0.5s ease infinite;
+    animation-delay: calc(var(--animation-order) * 0.1s);
+  }
+
+  /* Nav Hover */
+  .nav-hover-btn {
+    position: relative;
+    margin-inline-start: 2.5rem;
+    font-family: var(--font-general);
+    font-size: 0.75rem;
+    text-transform: uppercase;
+    color: #e0f2fe;
+    cursor: pointer;
+  }
+
+  .nav-hover-btn::after {
+    content: "";
+    position: absolute;
+    width: 0%;
+    height: 2px;
+    background: var(--color-blue-100);
+    transition: width 0.4s ease;
+    bottom: 0;
+    left: 0;
+  }
+
+  .nav-hover-btn:hover::after {
+    width: 100%;
+  }
+
+  .nav-hover-btn:hover {
+    color: var(--color-blue-100);
+  }
+
+  /* Floating Nav */
+  .floating-nav {
+    background-color: black;
+    border-radius: 0.5rem;
+    border: 1px solid rgba(229, 231, 235, 0.2);
+  }
+
+  /* Glow */
   .glow-pulse {
     animation: pulse 2s infinite;
   }
@@ -200,44 +246,4 @@ html {
       box-shadow: 0 0 12px rgba(255, 0, 0, 0.6);
     }
   }
-  .nav-hover-btn::after {
-  content: "";
-  position: absolute;
-  width: 0%;
-  height: 2px;
-  background: var(--color-blue-100);
-  transition: width 0.4s ease;
-  bottom: 0;
-  left: 0;
-  }
-.nav-hover-btn:hover::before {
-  width: 100%;
-}
-.nav-hover-btn::after {
-  top: 0;
-  bottom: auto;
-  right: 0;
-  left: auto;
-}
-  .nav-hover-btn:hover::after {
-    transform: scaleX(1);
-    transform-origin: bottom left;
-  }
-  .nav-hover-btn:hover::after {
-  width: 100%;
-}
-
-.nav-hover-btn:hover {
-  color: var(--color-blue-100);
-}
-  .nav-hover-btn {
-    position: relative;
-    margin-inline-start: 2.5rem;
-    font-family: var(--font-general);
-    font-size: 0.75rem;
-    text-transform: uppercase;
-    color: #e0f2fe;
-    cursor: pointer;
-  }
-
 }
