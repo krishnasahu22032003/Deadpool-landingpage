@@ -2,6 +2,7 @@ import { useState, useEffect } from "react";
 import Loader from "./components/Loader";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
+import MeetDeadpool from "./components/MeetDeadpool";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -22,6 +23,7 @@ function App() {
         <>
           <Navbar />
           <Hero />
+          <MeetDeadpool/>
         </>
       )}
     </main>
