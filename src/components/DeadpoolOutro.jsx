@@ -7,6 +7,7 @@ gsap.registerPlugin(ScrollTrigger);
 const DeadpoolOutro = () => {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
+  const buttonRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -20,6 +21,22 @@ const DeadpoolOutro = () => {
           ease: "power3.out",
           scrollTrigger: {
             trigger: textRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      gsap.fromTo(
+        buttonRef.current,
+        { opacity: 0, y: 40 },
+        {
+          opacity: 1,
+          y: 0,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: buttonRef.current,
             start: "top 90%",
             toggleActions: "play reset play reset",
           },
@@ -44,7 +61,10 @@ const DeadpoolOutro = () => {
           You’ve seen the blades, the bullets, the bad jokes — now it’s your turn to step into the madness.
           Embrace the chaos, break a few rules, and let Deadpool be your unhinged spirit guide.
         </p>
-        <button className="mt-6 px-8 py-4 bg-[#FF1F1F] text-white font-bold text-lg rounded-full hover:bg-[#ff3c3c] transition-all shadow-[0_0_20px_#ff1f1f88]">
+        <button
+          ref={buttonRef}
+          className="mt-6 px-8 py-4 bg-[#FF1F1F] text-white font-bold text-lg rounded-full cursor-pointer transition-all shadow-[0_0_20px_#ff1f1f88] hover:bg-[#ff3c3c] hover:scale-105 hover:shadow-[0_0_30px_#ff1f1faa]"
+        >
           Enter the Deadpoolverse
         </button>
       </div>
