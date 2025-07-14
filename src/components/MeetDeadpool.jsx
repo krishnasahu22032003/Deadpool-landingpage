@@ -8,10 +8,47 @@ const MeetDeadpool = () => {
   const sectionRef = useRef(null);
   const textRef = useRef(null);
   const imageRef = useRef(null);
+  const headingRef = useRef(null);
+  const paragraphRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      // Text Animation
+      // Heading animation
+      gsap.fromTo(
+        headingRef.current,
+        { y: 60, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      // Paragraph animation
+      gsap.fromTo(
+        paragraphRef.current,
+        { y: 40, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          delay: 0.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: paragraphRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      // Text container animation
       gsap.fromTo(
         textRef.current,
         { x: -150, opacity: 0 },
@@ -62,19 +99,25 @@ const MeetDeadpool = () => {
       <div className="max-w-[1440px] mx-auto grid grid-cols-1 md:grid-cols-2 gap-20 items-center relative z-10">
         {/* Text Content */}
         <div ref={textRef} className="space-y-6">
-          <h2 className="text-4xl md:text-6xl font-orbitron font-bold text-[#FF3C3C] tracking-tight">
+          <h2
+            ref={headingRef}
+            className="text-4xl md:text-6xl font-orbitron font-bold text-[#FF3C3C] tracking-tight"
+          >
             Meet the Merc with a Mouth
           </h2>
-          <p className="text-lg text-white/80 font-inter leading-relaxed">
+          <p
+            ref={paragraphRef}
+            className="text-lg text-white/80 font-inter leading-relaxed"
+          >
             Deadpool isn’t your typical hero. He heals fast, talks faster, and fights dirty.
             With twin katanas, explosive grenades, and a brain full of bad ideas — he's here to entertain.
           </p>
           <div className="grid grid-cols-1 sm:grid-cols-2 gap-5 text-sm text-white/60 font-mono">
             {[ // Enhanced Hover Cards
-              { title: "⚔ Weapons", desc: "Katanas, pistols, and an unhealthy obsession with chimichangas." },
-              { title: "🧠 Traits", desc: "Regenerates, wisecracks, breaks fourth walls... daily." },
-              { title: "💥 Combat Style", desc: "Chaotic, unpredictable, and often hilarious." },
-              { title: "💬 Quote", desc: '"Maximum effort! Also, minimum planning."' },
+              { title: "\u2694 Weapons", desc: "Katanas, pistols, and an unhealthy obsession with chimichangas." },
+              { title: "\ud83e\udde0 Traits", desc: "Regenerates, wisecracks, breaks fourth walls... daily." },
+              { title: "\ud83d\udca5 Combat Style", desc: "Chaotic, unpredictable, and often hilarious." },
+              { title: "\ud83d\udcac Quote", desc: '"Maximum effort! Also, minimum planning."' },
             ].map(({ title, desc }, idx) => (
               <div
                 key={idx}
