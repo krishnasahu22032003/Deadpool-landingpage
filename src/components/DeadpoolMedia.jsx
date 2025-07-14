@@ -7,17 +7,38 @@ gsap.registerPlugin(ScrollTrigger);
 const DeadpoolMedia = () => {
   const sectionRef = useRef(null);
   const videoRef = useRef(null);
+  const titleRef = useRef(null);
   const imagesRef = useRef([]);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Animate section title
+      gsap.fromTo(
+        titleRef.current,
+        { y: 100, opacity: 0, scale: 0.8 },
+        {
+          y: 0,
+          opacity: 1,
+          scale: 1,
+          duration: 1.6,
+          ease: "expo.out",
+          scrollTrigger: {
+            trigger: titleRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      // Video animation
       gsap.fromTo(
         videoRef.current,
-        { scale: 0.9, opacity: 0 },
+        { y: 60, scale: 0.9, opacity: 0 },
         {
+          y: 0,
           scale: 1,
           opacity: 1,
-          duration: 1.4,
+          duration: 1.5,
           ease: "power4.out",
           scrollTrigger: {
             trigger: videoRef.current,
@@ -27,13 +48,15 @@ const DeadpoolMedia = () => {
         }
       );
 
+      // Images animation
       imagesRef.current.forEach((img, i) => {
         gsap.fromTo(
           img,
-          { y: 80, opacity: 0 },
+          { y: 80, opacity: 0, scale: 0.95 },
           {
             y: 0,
             opacity: 1,
+            scale: 1,
             duration: 1.3,
             ease: "power3.out",
             delay: i * 0.15,
@@ -66,7 +89,10 @@ const DeadpoolMedia = () => {
 
       <div className="max-w-7xl mx-auto relative z-10 space-y-20">
         {/* Section Title */}
-        <h2 className="text-center text-4xl md:text-8xl font-negra font-bold text-[#ff1f1f] tracking-tight mb-12 ">
+        <h2
+          ref={titleRef}
+          className="text-center text-4xl md:text-8xl font-negra font-bold text-[#ff1f1f] tracking-tight mb-12 drop-shadow-[0_5px_15px_#ff1f1f88]"
+        >
           Deadpool Media
         </h2>
 
@@ -91,7 +117,7 @@ const DeadpoolMedia = () => {
             <div
               key={idx}
               ref={(el) => (imagesRef.current[idx] = el)}
-              className="group relative overflow-hidden rounded-xl border border-red-500/30 hover:border-[#ff1f1f] transition-all duration-300 shadow-md hover:shadow-[0_0_25px_#ff1f1faa] cursor-pointer bg-gradient-to-br from-[#1a1a1a] via-[#1a0e10] to-[#0f0f0f]"
+              className="group relative overflow-hidden rounded-xl border border-red-500/30 hover:border-[#ff1f1f] transition-all duration-300 shadow-md hover:shadow-[0_0_30px_#ff1f1faa] cursor-pointer bg-gradient-to-br from-[#1a1a1a] via-[#1a0e10] to-[#0f0f0f]"
             >
               <img
                 src={`/images/${img}`}
