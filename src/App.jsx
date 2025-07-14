@@ -4,6 +4,7 @@ import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import MeetDeadpool from "./components/MeetDeadpool";
 import DeadpoolOrigins from "./components/DeadpoolOrigins";
+import DeadpoolMedia from "./components/DeadpoolMedia";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -26,6 +27,7 @@ function App() {
           <Hero />
           <MeetDeadpool/>
           <DeadpoolOrigins/>
+          <DeadpoolMedia/>
         </>
       )}
     </main>
