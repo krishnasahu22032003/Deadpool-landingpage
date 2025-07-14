@@ -6,7 +6,7 @@
 /* Font Faces */
 @font-face {
   font-family: "Modern Negra";
-  src: url("/fonts/Modern Negra Demo.ttf") format("truetype");
+  src: url(" /fonts/Modern Negra Demo.ttf") format("truetype");
 }
 
 /* Base Styles */
@@ -151,7 +151,9 @@
     animation: glitchTop 1.5s infinite linear alternate;
     color: #ff0000;
   }
-
+  .font-negra {
+    font-family: "Modern Negra", sans-serif;
+  }
   .glitch-text::after {
     animation: glitchBottom 1.5s infinite linear alternate;
     color: #00ffff;
