@@ -7,6 +7,7 @@ import DeadpoolOrigins from "./components/DeadpoolOrigins";
 import DeadpoolMedia from "./components/DeadpoolMedia";
 import DeadpoolArsenal from "./components/DeadpoolArsenal";
 import DeadpoolOutro from "./components/DeadpoolOutro";
+import DeadpoolFooter from "./components/DeadpoolFooter";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -21,7 +22,7 @@ function App() {
   }, []);
 
   return (
-    <main className="min-h-screen w-screen overflow-x-hidden relative">
+    <main className="min-h-screen w-screen overflow-x-hidden overflow-hidden relative">
       {!isLoaded && <Loader />}  {/* Show loader until page is ready */}
       {isLoaded && (
         <>
@@ -32,6 +33,7 @@ function App() {
           <DeadpoolMedia/>
           <DeadpoolArsenal/>
           <DeadpoolOutro/>
+          <DeadpoolFooter/>
         </>
       )}
     </main>
