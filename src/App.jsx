@@ -6,6 +6,7 @@ import MeetDeadpool from "./components/MeetDeadpool";
 import DeadpoolOrigins from "./components/DeadpoolOrigins";
 import DeadpoolMedia from "./components/DeadpoolMedia";
 import DeadpoolArsenal from "./components/DeadpoolArsenal";
+import DeadpoolOutro from "./components/DeadpoolOutro";
 
 function App() {
   const [isLoaded, setIsLoaded] = useState(false);
@@ -30,6 +31,7 @@ function App() {
           <DeadpoolOrigins/>
           <DeadpoolMedia/>
           <DeadpoolArsenal/>
+          <DeadpoolOutro/>
         </>
       )}
     </main>
