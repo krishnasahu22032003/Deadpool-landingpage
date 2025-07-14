@@ -28,9 +28,46 @@ const weapons = [
 const DeadpoolArsenal = () => {
   const sectionRef = useRef(null);
   const cardRefs = useRef([]);
+  const headingRef = useRef(null);
+  const descRef = useRef(null);
 
   useEffect(() => {
     const ctx = gsap.context(() => {
+      // Title animation
+      gsap.fromTo(
+        headingRef.current,
+        { y: -50, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power4.out",
+          scrollTrigger: {
+            trigger: headingRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      // Description animation
+      gsap.fromTo(
+        descRef.current,
+        { y: 30, opacity: 0 },
+        {
+          y: 0,
+          opacity: 1,
+          duration: 1.2,
+          ease: "power3.out",
+          scrollTrigger: {
+            trigger: descRef.current,
+            start: "top 90%",
+            toggleActions: "play reset play reset",
+          },
+        }
+      );
+
+      // Weapon card animations
       cardRefs.current.forEach((card, i) => {
         gsap.fromTo(
           card,
@@ -58,16 +95,22 @@ const DeadpoolArsenal = () => {
   return (
     <section
       ref={sectionRef}
-      id="arsenal"
+      id="simulation"
       className="relative w-full bg-gradient-to-b from-[#0c0c0c] via-[#17090b] to-[#0a0a0a] text-white py-28 px-6 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grain.png')] opacity-5 pointer-events-none" />
 
       <div className="max-w-7xl mx-auto relative z-10 text-center space-y-6">
-        <h2 className="text-4xl md:text-7xl font-negra font-bold text-[#FF1F1F] tracking-tight">
+        <h2
+          ref={headingRef}
+          className="text-4xl md:text-7xl font-negra font-bold text-[#FF1F1F] tracking-tight"
+        >
           Deadpool's Arsenal
         </h2>
-        <p className="text-white/70 text-lg max-w-xl mx-auto font-inter">
+        <p
+          ref={descRef}
+          className="text-white/70 text-lg max-w-xl mx-auto font-inter"
+        >
           Dive into Deadpool’s dangerously ridiculous toolkit. Each weapon is as chaotic as his punchlines.
         </p>
 
