@@ -109,11 +109,11 @@ const Hero = () => {
         ref={swordRef}
         src="/images/sword.png"
         alt="Sword"
-        className="absolute top-28 right-18 w-[100px] md:w-[60px] z-20 pointer-events-none"
+        className="hidden md:block absolute top-28 right-18 w-[100px] md:w-[60px] z-20 pointer-events-none"
       />
 
       {/* Talking Bubble */}
-      <div className="absolute bottom-8 left-8 bg-[#1c1c1c] text-white px-4 py-2 rounded-lg border-2 border-red-600 max-w-xs text-sm font-[Inter] shadow-md z-20">
+      <div className="hidden md:block  absolute bottom-8 left-8 bg-[#1c1c1c] text-white px-4 py-2 rounded-lg border-2 border-red-600 max-w-xs text-sm font-[Inter] shadow-md z-20">
         <span ref={bubbleTextRef} className="block text-white/90 bubble-text"></span>
       </div>
 
