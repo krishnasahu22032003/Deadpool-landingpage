@@ -50,7 +50,7 @@ const DeadpoolOutro = () => {
   return (
     <section
       ref={sectionRef}
-      id="outro"
+      id="transmission"
       className="relative w-full bg-gradient-to-b from-[#0a0a0a] via-[#1a0b0e] to-black text-white py-28 px-6 overflow-hidden"
     >
       <div className="max-w-5xl mx-auto relative z-10 text-center space-y-8" ref={textRef}>
