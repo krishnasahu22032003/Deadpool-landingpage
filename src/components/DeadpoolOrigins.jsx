@@ -54,7 +54,7 @@ const DeadpoolOrigins = () => {
   return (
     <section
       ref={sectionRef}
-      id="deadpool-origins"
+      id="timeline"
       className="relative w-full bg-gradient-to-b from-[#0a0a0a] via-[#12090c] to-[#180303] text-white py-28 px-6 overflow-hidden"
     >
       <div className="absolute inset-0 opacity-10 bg-[url('/images/blood-splatter.png')] bg-no-repeat bg-center bg-cover pointer-events-none" />
@@ -64,9 +64,9 @@ const DeadpoolOrigins = () => {
         <div ref={imageRef} className="relative">
           <div className="absolute -top-14 -right-14 w-36 h-36 bg-red-600/30 rounded-full blur-3xl" />
           <img
-            src="/images/deadpool-2-2.png"
+            src="/images/deadpool-2-2-2.png"
             alt="Deadpool Origins"
-            className="w-[280px] h-auto md:w-[280px] md:h-[auto] mx-auto drop-shadow-[0_25px_35px_rgba(255,60,60,0.4)]"
+            className="w-[280px] h-auto md:w-[420px] mb-10 md:h-[auto] mx-auto drop-shadow-[0_25px_35px_rgba(255,60,60,0.4)]"
           />
 
         </div>
