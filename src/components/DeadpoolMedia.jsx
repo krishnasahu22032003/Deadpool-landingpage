@@ -82,7 +82,7 @@ const DeadpoolMedia = () => {
   return (
     <section
       ref={sectionRef}
-      id="media"
+      id="features"
       className="relative w-full bg-gradient-to-b from-[#0a0a0a] via-[#1a0b0e] to-[#0c0c0c] text-white py-28 px-6 overflow-hidden"
     >
       <div className="absolute top-0 left-0 w-full h-full bg-[url('/images/grain.png')] opacity-5 pointer-events-none" />
