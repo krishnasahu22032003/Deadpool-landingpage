@@ -101,7 +101,7 @@ const Hero = () => {
 
   return (
     <section
-      id="hero"
+      id="home"
       className="relative h-screen w-full flex flex-col justify-between items-center text-white bg-gradient-to-b from-black via-[#0d0d1c] to-[#180303] overflow-hidden px-6 pt-24"
     >
       {/* Sword Image Top Right */}
