@@ -91,7 +91,7 @@ const MeetDeadpool = () => {
   return (
     <section
       ref={sectionRef}
-      id="next-section"
+      id="neural"
       className="relative w-full bg-gradient-to-b from-[#180303] via-[#12090c] to-[#0a0a0a] text-white py-28 px-6 overflow-hidden"
     >
       <div className="absolute inset-0 opacity-10 bg-[url('/images/blood-splatter.png')] bg-no-repeat bg-center bg-cover pointer-events-none" />

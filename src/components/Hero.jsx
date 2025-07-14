@@ -148,7 +148,7 @@ const Hero = () => {
 
       {/* Scroll Down Arrow */}
       <a
-        href="#next-section"
+        href="#neural"
         className="absolute bottom-6 right-6 flex flex-col items-center text-white/70 text-xs hover:text-white transition-colors duration-300 z-20"
       >
         <span className="mb-1">Scroll Down</span>
